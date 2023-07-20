@@ -1,0 +1,17 @@
+.notFound {
+    text-align: center;
+    position: relative;
+}
+
+.notFound img {
+    width: 100%;
+}
+
+.notFound h1 {
+    position: absolute;
+    color: #fff;
+    background-color: aquamarine;
+    width: 65%;
+    margin-left: 17.5%;
+    font-variant: small-caps;
+}
