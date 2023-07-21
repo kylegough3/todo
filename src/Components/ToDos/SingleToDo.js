@@ -10,8 +10,9 @@ export default function SingleToDo(props) {
 
   return (
     <tr>
-        <td>{props.todo.Name}</td>
-        <td>{props.category.CatName}</td>
+        <td className='checkbox' type='checkbox'>Checkbox</td>
+        <td>{props.toDo.name}</td>
+        <td>{props.toDo.category.catName}</td>
     </tr>
   )
 }

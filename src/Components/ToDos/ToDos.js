@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './ToDos.css'
 
-import { Container } from 'react-bootstrap'
+import { Container, Table } from 'react-bootstrap'
 import SingleToDo from './SingleToDo'
 
 import { useAuth } from '../../contexts/AuthContext'
@@ -21,16 +21,30 @@ export default function ToDos() {
     })
   }
 
+  useEffect(() => {
+    getToDos()
+  }, []);
+
   return (
     <section className="todo">
-      <article className="p-5">
+      <article className="p-4">
         <h1 className="text-center">ToDo Disaster Dashboard</h1>
       </article>
 
-      <Container>
-        <article className="toDoGallery row justify-content-center">
-          {toDos.map(t => <SingleToDo key={t.toDoId} toDo={t} getToDos={getToDos}/>)}
-        </article>
+      <Container className='pt-4'>
+        <Table className='striped' variant='dark'>
+          <thead>
+            <tr>
+              <th>Done?</th>
+              <th>To Do</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {toDos.map(t =>
+              <SingleToDo key={t.toDoId} toDo={t} getToDos={getToDos} />)}
+          </tbody>
+        </Table>
       </Container>
     </section>
   )

@@ -15,7 +15,7 @@ export default function Logout() {
     return (
     <div className="logout text-center p-3 bg-dark text-white">
         <Profile/>
-        <button className="btn btn-info" onClick={() => logout()}>Logout
+        <button className="btn btn-info" onClick={() => handleAuth()}>Logout
         </button>
     </div>
   )

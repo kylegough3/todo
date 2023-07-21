@@ -17,6 +17,10 @@ export default function Categories() {
     })
   }
 
+  useEffect(() => {
+    getCategories()
+}, []);
+
   return (
     <section className="categories">
       <article className="bg-blue p-4-mb-4">
