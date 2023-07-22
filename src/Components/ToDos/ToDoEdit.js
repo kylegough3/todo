@@ -4,9 +4,9 @@ import ToDoForm from './ToDoForm'
 
 export default function ToDoEdit(props) {
   return (
-    <Modal show={props.ShowEdit} onHide={() => props.setShowEdit(false)}>
+    <Modal show={props.showEdit} onHide={() => props.setShowEdit(false)}>
         <Modal.Header className='bg-green' closeButton>
-            <h3>Editing {props.toDo.Name}</h3>
+            <h3>Editing {props.toDo.name}</h3>
         </Modal.Header>
         <Modal.Body>
             <ToDoForm getToDos={props.getToDos} setShowEdit={props.setShowEdit} toDo={props.toDo} />

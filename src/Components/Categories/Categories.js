@@ -10,7 +10,7 @@ export default function Categories() {
   const [categories, setCategories] = useState([]);
 
   const getCategories = () => {
-    //Pull the ToDos from the API, log the results in the console, set the ToDos
+    //Pull the ToDos from the API, log the results in the console, set the Categories
     axios.get(`https://localhost:7248/api/Categories`).then(response => {
       console.log(response)
       setCategories(response.data)

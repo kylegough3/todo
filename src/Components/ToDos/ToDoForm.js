@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Formik, Field, Form} from 'formik'
 import { toDoSchema } from '../../utilities/validationSchema'
 import axios from 'axios'
@@ -14,9 +14,11 @@ export default function ToDoForm(props) {
         })
       }
 
+    
+
       const handleSubmit = (values) => {
         console.log(values)
-        if(!props.todo) {
+        if(!props.toDo) {
             const newToDo = {
                 name: values.name,
                 done: false, 
@@ -29,24 +31,29 @@ export default function ToDoForm(props) {
         } 
         else {
             const toDoEdit = {
-                toDoId: props.todo.toDoId,
+                toDoId: props.toDo.toDoId,
                 name: values.name,
-                done: props.todo.done,
+                done: props.toDo.done,
                 categoryId: values.categoryId
             }
-            axios.post(`https://localhost:7248/api/ToDos${props.toDo.toDoId}`, toDoEdit).then(() => {
+            axios.put(`https://localhost:7248/api/ToDos/${props.toDo.toDoId}`, toDoEdit).then(() => {
                 props.getToDos()
                 props.setShowEdit(false)
              })
         }
+
     }
+    
+    useEffect(() => {
+        getCategories()
+    }, []);
 
     return (
         <Formik
             initialValues={{
-                name: props.todo ? props.todo.name : '',
-                done: props.todo ? props.todo.done : false,
-                categoryId: props.todo ? props.todo.categoryId : ''
+                name: props.toDo ? props.toDo.name : '',
+                done: props.toDo ? props.toDo.done : false,
+                categoryId: props.toDo ? props.toDo.categoryId : ''
             }}
             validationSchema={toDoSchema}
             onSubmit={(values) => handleSubmit(values)}>

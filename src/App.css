@@ -3,3 +3,14 @@
   margin-bottom: 0 !important;
   text-align: center;
 }
+
+section.toDos,
+section.categories,
+section.login {
+  min-height: 85vh;
+  background-image: url('./images/clouds.jpg');
+} 
+
+footer#footer {
+  background-color: maroon;
+}
