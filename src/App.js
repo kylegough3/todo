@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -11,6 +10,8 @@ import NotFound from './Components/NotFound';
 import AuthProvider from './contexts/AuthContext';
 import Login from './Components/Auth/Login'
 
+import ProtectedRoute from './Components/ProtectedRoute';
+
 function App() {
   return (
     <div className="App">
@@ -21,9 +22,9 @@ function App() {
           <Navigation/>
 
           <Routes>
-            <Route path='/' element={<ToDos/>} />
-            <Route path='/ToDos' element={<ToDos/>} />
-            <Route path='/Categories' element={<Categories/>} />
+            <Route path='/' element={<ProtectedRoute><ToDos/></ProtectedRoute>} />
+            <Route path='/ToDos' element={<ProtectedRoute><ToDos/></ProtectedRoute>} />
+            <Route path='/Categories' element={<ProtectedRoute><Categories/></ProtectedRoute>} />
             <Route path='/Login' element={<Login/>} />
 
             <Route path='*' element={<NotFound/>} />
