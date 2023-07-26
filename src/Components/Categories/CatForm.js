@@ -47,7 +47,7 @@ export default function CatForm(props) {
                     {errors.catDesc && touched.catDesc ? <div className='text-danger'>{errors.catDesc}</div> : null} 
                 </div>
                 <div className="form-group m-1">
-                    <button className="btn btn-success">Submit</button>
+                    <button className="btn btn-success" type='submit'>Submit</button>
                 </div>
             </Form>
             )}
