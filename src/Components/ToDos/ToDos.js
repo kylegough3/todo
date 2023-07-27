@@ -22,7 +22,7 @@ export default function ToDos() {
 
   const getToDos = () => {
     //Pull the ToDos from the API, log the results in the console, set the ToDos
-    axios.get(`https://todoapi.goughkyle.com/api/ToDos`).then(response => {
+    axios.get(`http://todoapi.goughkyle.com/api/ToDos`).then(response => {
       console.log(response)
       setToDos(response.data)
     })

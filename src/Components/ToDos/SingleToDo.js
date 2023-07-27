@@ -15,7 +15,7 @@ export default function SingleToDo(props) {
 
     const deleteToDo = (id) => {
         if(window.confirm(`Are you sure you want to delete ${props.toDo.name}`)) {
-            axios.delete(`https://todoapi.goughkyle.com/api/ToDos/${props.toDo.toDoId}`).then(() => {props.getToDos()})
+            axios.delete(`http://todoapi.goughkyle.com/api/ToDos/${props.toDo.toDoId}`).then(() => {props.getToDos()})
         }
     }
 
