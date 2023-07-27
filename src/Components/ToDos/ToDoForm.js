@@ -8,7 +8,7 @@ export default function ToDoForm(props) {
 
     const getCategories = () => {
         //Pull the ToDos from the API, log the results in the console, set the ToDos
-        axios.get(`http://todoapi.goughkyle.com/api/Categories`).then(response => {
+        axios.get(`https://todoapi.goughkyle.com/api/Categories`).then(response => {
           console.log(response)
           setCategories(response.data)
         })
@@ -24,7 +24,7 @@ export default function ToDoForm(props) {
                 done: false, 
                 categoryId: values.categoryId
             }
-            axios.post(`http://todoapi.goughkyle.com/api/ToDos`, newToDo).then(() => {
+            axios.post(`https://todoapi.goughkyle.com/api/ToDos`, newToDo).then(() => {
                 props.getToDos()
                 props.setShowCreate(false)
             })
@@ -36,7 +36,7 @@ export default function ToDoForm(props) {
                 done: props.toDo.done,
                 categoryId: values.categoryId
             }
-            axios.put(`http://todoapi.goughkyle.com/api/ToDos/${props.toDo.toDoId}`, toDoEdit).then(() => {
+            axios.put(`https://todoapi.goughkyle.com/api/ToDos/${props.toDo.toDoId}`, toDoEdit).then(() => {
                 props.getToDos()
                 props.setShowEdit(false)
              })
