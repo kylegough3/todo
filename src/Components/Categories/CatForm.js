@@ -9,7 +9,7 @@ export default function CatForm(props) {
         if(!props.category) {
             const catCreate= values
 
-            axios.post(`https://localhost:7248/api/Categories`, catCreate).then(() => {
+            axios.post(`http://todoapi.goughkyle.com/api/Categories`, catCreate).then(() => {
                 props.setShowCreate(false)
                 props.getCategories()
             })
@@ -20,7 +20,7 @@ export default function CatForm(props) {
                 categoryName: values.categoryName,
                 categoryDescription: values.categoryDescription
             }
-            axios.put(`https://localhost:7248/api/Categories/${props.category.categoryId}`, catEdit).then(() => {
+            axios.put(`http://todoapi.goughkyle.com/api/Categories/${props.category.categoryId}`, catEdit).then(() => {
                 props.setShowEdit(false)
                 props.getCategories()
             })
